@@ -1,7 +1,8 @@
 import * as readline from 'readline'
+import { homedir } from 'os'
 import { messages } from './helpers/const.js'
 import { commands } from './handles/index.js'
-import { finishProcess } from './helpers/helpers.js'
+import { displayCurrentPath, finishProcess } from './helpers/helpers.js'
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,7 +10,8 @@ const rl = readline.createInterface({
   prompt: '>'
 })
 console.log(messages.greetings)
-console.log(messages.currentPath)
+process.chdir(homedir())
+console.log(displayCurrentPath())
 rl.prompt()
 
 rl.on('line', (input) => {
@@ -17,7 +19,7 @@ rl.on('line', (input) => {
     if (input.trim() in commands) {
       try {
         commands[input]()
-        console.log(messages.currentPath)
+        console.log(displayCurrentPath())
       }
       catch {
         throw new Error(messages.failedMessage)

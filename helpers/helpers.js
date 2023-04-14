@@ -11,3 +11,7 @@ export const getUserName = () => {
     return [key, value]
   }))
 }
+
+export const displayCurrentPath = () => {
+  return `You are currently in ${process.cwd()}`
+}
