@@ -1,8 +1,9 @@
 import { finishProcess } from "../helpers/helpers.js"
+import { cd } from "./cd.js"
+import { up } from "./up.js"
 
 export const commands = {
-  'add': function () {
-    console.log("Add")
-  },
+  'up': up,
+  'cd': cd,
   '.exit': finishProcess
 }

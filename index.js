@@ -15,10 +15,11 @@ console.log(displayCurrentPath())
 rl.prompt()
 
 rl.on('line', (input) => {
+  const commandsInfo = input.split(' ')
   try {
-    if (input.trim() in commands) {
+    if (commandsInfo[0].trim() in commands) {
       try {
-        commands[input]()
+        commands[commandsInfo[0]](commandsInfo.splice(1).join())
         console.log(displayCurrentPath())
       }
       catch {
