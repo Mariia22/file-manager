@@ -15,3 +15,7 @@ export const getUserName = () => {
 export const displayCurrentPath = () => {
   return `You are currently in ${process.cwd()}`
 }
+
+export const sortByNameAcs = (arr) => {
+  return arr.sort((a, b) => a.name - b.name)
+}
