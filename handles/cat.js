@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import { Writable } from 'stream'
 import { pipeline } from 'stream/promises'
 
-export const cat = async (pathToFile) => {
+export const readFile = async (pathToFile) => {
   const normalizePath = resolve(pathToFile)
   const content = createReadStream(normalizePath, { encoding: 'utf-8' })
   const output = new Writable({

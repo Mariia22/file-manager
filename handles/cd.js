@@ -2,7 +2,7 @@ import { chdir } from 'process'
 import { up } from './up.js'
 import { homedir } from 'os'
 
-export const cd = (path) => {
+export const changeDirectory = (path) => {
   switch (path) {
     case '..':
       up()

@@ -1,25 +1,25 @@
 import { finishProcess } from "../helpers/helpers.js"
-import { add } from "./add.js"
-import { cat } from "./cat.js"
-import { cd } from "./cd.js"
+import { addFile } from "./add.js"
+import { readFile } from "./cat.js"
+import { changeDirectory } from "./cd.js"
 import { compressFile } from "./compress.js"
 import { copyFile } from "./cp.js"
 import { decompressFile } from "./decompress.js"
 import { deleteFile } from "./delete.js"
 import { hash } from "./hash.js"
-import { ls } from "./ls.js"
+import { printList } from "./ls.js"
 import { moveFile } from "./move.js"
 import { osCommands } from "./os.js"
-import { rn } from "./rename.js"
-import { up } from "./up.js"
+import { renameFile } from "./rename.js"
+import { moveUp } from "./up.js"
 
 export const commands = {
-  'up': up,
-  'cd': cd,
-  'ls': ls,
-  'cat': cat,
-  'add': add,
-  'rn': rn,
+  'up': moveUp,
+  'cd': changeDirectory,
+  'ls': printList,
+  'cat': readFile,
+  'add': addFile,
+  'rn': renameFile,
   'cp': copyFile,
   'mv': moveFile,
   'rm': deleteFile,
