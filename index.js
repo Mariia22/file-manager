@@ -4,22 +4,12 @@ import { messages } from './helpers/const.js'
 import { commands } from './handles/index.js'
 import { displayCurrentPath, finishProcess } from './helpers/helpers.js'
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: '>'
-})
-console.log(messages.greetings)
-process.chdir(homedir())
-console.log(displayCurrentPath())
-rl.prompt()
-
-rl.on('line', (input) => {
-  const commandsInfo = input.split(' ')
+async function commandExecutionProgram(command) {
+  const commandsInfo = command.split(' ')
   try {
     if (commandsInfo[0].trim() in commands) {
       try {
-        commands[commandsInfo[0]](commandsInfo.splice(1).join())
+        await commands[commandsInfo[0]](commandsInfo.splice(1).join())
         console.log(displayCurrentPath())
       }
       catch {
@@ -31,8 +21,19 @@ rl.on('line', (input) => {
   } catch (error) {
     console.error(error.message)
   }
-  rl.prompt()
+  await rl.prompt()
+}
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: '>'
 })
+console.log(messages.greetings)
+process.chdir(homedir())
+console.log(displayCurrentPath())
+rl.prompt()
+rl.on('line', (input) => commandExecutionProgram(input))
   .on('SIGINT', () => {
     finishProcess()
   })
