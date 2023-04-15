@@ -12,7 +12,8 @@ async function commandExecutionProgram(command) {
         await commands[commandsInfo[0]](commandsInfo.splice(1).join())
         console.log(displayCurrentPath())
       }
-      catch {
+      catch (error) {
+        console.log(error)
         throw new Error(messages.failedMessage)
       }
     } else {
