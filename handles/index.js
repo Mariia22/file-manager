@@ -9,7 +9,7 @@ import { deleteFile } from "./delete.js"
 import { hash } from "./hash.js"
 import { printList } from "./ls.js"
 import { moveFile } from "./move.js"
-import { osCommands } from "./os.js"
+import { getOSinfo } from "./os.js"
 import { renameFile } from "./rename.js"
 import { moveUp } from "./up.js"
 
@@ -26,6 +26,6 @@ export const commands = {
   'hash': hash,
   'compress': compressFile,
   'decompress': decompressFile,
-  'os': osCommands,
+  'os': getOSinfo,
   '.exit': finishProcess
 }

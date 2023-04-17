@@ -1,11 +1,11 @@
 import { chdir } from 'process'
-import { up } from './up.js'
+import { moveUp } from './up.js'
 import { homedir } from 'os'
 
 export const changeDirectory = (path) => {
   switch (path) {
     case '..':
-      up()
+      moveUp()
       break
     case '~':
       chdir(homedir())
