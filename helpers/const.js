@@ -9,7 +9,8 @@ export const messages = {
   farewell: `Thank you for using File Manager, ${username}, goodbye!`,
   invalidMessage: 'Invalid input',
   failedMessage: 'Operation failed',
-  compressError: "Command is not recognized. Add path to source file and destination folder"
+  compressError: "Command is not recognized. Add path to source file and destination folder",
+  osError: 'Command is not recognize. Try again'
 }
 
 

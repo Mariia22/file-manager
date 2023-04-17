@@ -1,4 +1,5 @@
 import { EOL, cpus, userInfo } from 'os'
+import { messages } from '../helpers/const'
 
 export const getOSinfo = async (command) => {
   const normalizeCommand = command.slice(2)
@@ -9,9 +10,7 @@ export const getOSinfo = async (command) => {
     'username': getUserName,
     'architecture': getArchitecture
   }
-  Object.keys(commandInterface).includes(normalizeCommand)
-    ? commandInterface[normalizeCommand]()
-    : console.log('Command is not recognize. Try again')
+  Object.keys(commandInterface).includes(normalizeCommand) ? commandInterface[normalizeCommand]() : console.log(messages.osError)
 }
 
 const getEol = () => {

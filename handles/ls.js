@@ -1,6 +1,6 @@
 import { cwd } from 'process'
-import { readdir } from 'fs/promises';
-import { sortByNameAcs } from '../helpers/helpers.js';
+import { readdir } from 'fs/promises'
+import { sortByNameAcs } from '../helpers/helpers.js'
 
 export const printList = async () => {
   const files = await readdir(cwd(), { withFileTypes: true })
