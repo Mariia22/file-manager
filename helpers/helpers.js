@@ -1,4 +1,6 @@
 import { messages } from "./const.js"
+import { createReadStream, createWriteStream } from 'fs'
+import { pipeline } from 'stream/promises'
 
 export const finishProcess = () => {
   console.log(messages.farewell)
@@ -18,4 +20,10 @@ export const displayCurrentPath = () => {
 
 export const sortByNameAcs = (arr) => {
   return arr.sort((a, b) => a.name - b.name)
+}
+
+export const useStreams = async (sourceFile, destinationPath, compressionFunc) => {
+  const readStream = createReadStream(sourceFile)
+  const writableStream = createWriteStream(destinationPath)
+  await pipeline(readStream, compressionFunc, writableStream)
 }
