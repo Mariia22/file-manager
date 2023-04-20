@@ -13,7 +13,6 @@ async function commandExecutionProgram(command) {
         console.log(displayCurrentPath())
       }
       catch (error) {
-        console.log(error)
         throw new Error(messages.failedMessage)
       }
     } else {

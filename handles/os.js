@@ -1,5 +1,5 @@
 import { EOL, cpus, userInfo } from 'os'
-import { messages } from '../helpers/const'
+import { messages } from '../helpers/const.js'
 
 export const getOSinfo = async (command) => {
   const normalizeCommand = command.slice(2)
